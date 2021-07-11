@@ -1,5 +1,13 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView
+from .models import *
 
 # Create your views here.
-def index(request):
-    return render(request, "website/index.html")
+class IndexPage(ListView):
+    model = Project
+    template_name = "website/index.html"
+
+
+class ProjectDetailsPage(DetailView):
+    model = Project
+    template_name = "website/project_details.html"

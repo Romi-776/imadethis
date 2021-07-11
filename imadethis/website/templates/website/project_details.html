@@ -1,0 +1,16 @@
+{% extends "website/layout.html" %}
+
+{% block body %}
+<h1> {{ project.name }} </h1>
+<h3>(by:- {{ project.made_by }})</h3>
+<hr>
+<div>
+    {{ project.description }}
+</div>
+
+<p>Link to the project:
+    <a href="{{project.link}}">{{ project.name }}</a>
+</p>
+
+<a href="{% url 'index_page' %}">Home</a>
+{% endblock %}
