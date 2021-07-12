@@ -1,5 +1,9 @@
 {% extends "website/layout.html" %}
 
+{% block title %}
+{{ project.name }}
+{% endblock %}
+
 {% block body %}
 <h1> {{ project.name }} </h1>
 <h3>(by:- {{ project.made_by }})</h3>
@@ -12,5 +16,5 @@
     <a href="{{project.link}}">{{ project.name }}</a>
 </p>
 
-<a href="{% url 'index_page' %}">Home</a>
+<a href="{% url 'index_page' %}" class="btn btn-sm btn-outline-secondary">Home</a>
 {% endblock %}

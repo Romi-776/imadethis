@@ -1,0 +1,18 @@
+{% extends "website/layout.html" %}
+
+{% block title %}
+Publish Your New Project
+{% endblock %}
+
+{% block body %}
+<h1> What You made? </h1>
+
+<div class="form-group">
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary">Publish</button>
+    </form>
+</div>
+
+{% endblock %}

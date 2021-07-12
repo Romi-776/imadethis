@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class Project(models.Model):
@@ -19,3 +20,7 @@ class Project(models.Model):
 
     def __str__(self):
         return f"{self.name} made by :- {self.made_by}"
+
+    def get_absolute_url(self):
+        return reverse("project_details_page", args=str(self.pk))
+

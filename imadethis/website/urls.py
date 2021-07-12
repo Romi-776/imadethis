@@ -7,4 +7,6 @@ from .views import *
 urlpatterns = [
     path("", IndexPage.as_view(), name="index_page"),
     path("project/<int:pk>", ProjectDetailsPage.as_view(), name="project_details_page"),
+    path("new_project/", NewProjectPage.as_view(), name="new_project_page"),
+    
 ]
