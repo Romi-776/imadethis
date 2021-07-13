@@ -13,3 +13,14 @@ class NewProjectForm(forms.ModelForm):
             "description": forms.Textarea(attrs={"class": "form-control", "placeholder": "Project Description"}),
             "link": forms.TextInput(attrs={"class": "form-control", "placeholder": "URL to the Project"}),
         }
+        
+class EditProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ["name", "description", "link"]
+        
+        widgets = {
+            "name": forms.TextInput(attrs={"class": "form-control", "placeholder": "Project Name"}),
+            "description": forms.Textarea(attrs={"class": "form-control", "placeholder": "Project Description"}),
+            "link": forms.TextInput(attrs={"class": "form-control", "placeholder": "URL to the Project"}),
+        }

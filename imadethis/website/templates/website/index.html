@@ -12,7 +12,10 @@
             </strong>
         </a>
         (by:- {{ project.made_by }})
-        <br>
+        <small>
+            <a href="{% url 'edit_project_details_page' project.pk %}" class="btn btn-sm btn-secondary">Edit</a>
+            <a href="{% url 'delete_project_page' project.pk %}" class="btn btn-sm btn-danger">Delete</a>
+        </small>
         <p>
             {{ project.description }}
         </p>
