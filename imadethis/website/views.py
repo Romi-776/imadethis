@@ -14,7 +14,7 @@ from .forms import *
 class IndexPage(ListView):
     model = Project
     template_name = "website/index.html"
-
+    ordering = ["-id"]
 
 class ProjectDetailsPage(DetailView):
     model = Project

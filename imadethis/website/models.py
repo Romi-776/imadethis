@@ -14,7 +14,8 @@ class Project(models.Model):
     )
     description = models.TextField()
     link = models.URLField(max_length=256)
-
+    published_at = models.DateField(auto_now_add=True)
+    
     # todo
     # add other fields in this mode like photos, demo_videos
 
