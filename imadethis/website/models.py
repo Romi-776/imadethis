@@ -3,6 +3,19 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 
+class Category(models.Model):
+    """
+        Custom model for Category of a project.
+    """
+    name = models.CharField(max_length=255, default="other")
+    
+    def __str__(self):
+        return {self.name}
+
+    def get_absolute_url(self):
+        return reverse("project_details_page", args=str(self.pk))    
+
+
 class Project(models.Model):
     """
         Project model to store data related to Projects.
@@ -15,6 +28,9 @@ class Project(models.Model):
     description = models.TextField()
     link = models.URLField(max_length=256)
     published_at = models.DateField(auto_now_add=True)
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE, related_name="Projects_in_that_category"
+    )
     
     # todo
     # add other fields in this mode like photos, demo_videos
