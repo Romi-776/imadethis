@@ -13,12 +13,14 @@
         </a>
         (by:- {{ project.made_by }}) | {{ project.published_at }}
         <br>
+        {% if user.is_authenticated %}
         <small>
             <a href="{% url 'edit_project_details_page' project.pk %}" class="btn btn-sm btn-secondary">Edit</a>
             <a href="{% url 'delete_project_page' project.pk %}" class="btn btn-sm btn-danger">Delete</a>
         </small>
+        {% endif %}
         <p>
-            {{ project.description }}
+            {{ project.description|slice:":200" }}....
         </p>
     </li>
     <br>
