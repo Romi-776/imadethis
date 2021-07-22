@@ -27,6 +27,11 @@ class NewProjectPage(CreateView):
     form_class = NewProjectForm
 
 
+class NewCategoryPage(CreateView):
+    model = Category
+    template_name = "website/new_category.html"
+    fields = "__all__"
+
 class EditProjectDetailsPage(UpdateView):
     model = Project
     template_name = "website/edit_project_details.html"

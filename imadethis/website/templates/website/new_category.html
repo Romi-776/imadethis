@@ -1,0 +1,29 @@
+{% extends "website/layout.html" %}
+
+{% block title %}
+Add New Category 
+{% endblock %}
+
+{% block body %}
+
+{% if user.is_authenticated %}
+<h1> 
+    Add New Category For Projects
+</h1>
+
+<div class="form-group">
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary">Create Category</button>
+    </form>
+</div>
+{% else %}
+<h2>
+    Login to Create New Category
+</h2>
+<p>
+    You can login <a href="{% url 'login' %}">here.</a>
+</p>
+{% endif %}
+{% endblock %}
