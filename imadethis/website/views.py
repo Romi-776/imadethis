@@ -7,6 +7,7 @@ from django.views.generic import (
     DeleteView,
 )
 from django.urls import reverse_lazy
+from django.shortcuts import render
 from .models import *
 from .forms import *
 
@@ -42,3 +43,14 @@ class DeleteProjectPage(DeleteView):
     model = Project
     template_name = "website/delete_project.html"
     success_url = reverse_lazy("index_page")
+    
+class CategoryPage(ListView):
+    model = Category
+    template_name = "website/specific_category.html"
+    
+    def get(self, request, cat):
+        category_posts = Project.objects.filter(category=cat)
+        return render(request, self.template_name, {
+            "category": cat.capitalize(),
+            "category_posts": category_posts,
+        })

@@ -11,4 +11,5 @@ urlpatterns = [
     path("project/edit/<int:pk>", EditProjectDetailsPage.as_view(), name="edit_project_details_page"),
     path("project/delete/<int:pk>", DeleteProjectPage.as_view(), name="delete_project_page"),
     path('new_category/', NewCategoryPage.as_view(), name="new_category_page"),
+    path("category/<str:cat>/", CategoryPage.as_view(), name="specific_category_page"),
 ]
