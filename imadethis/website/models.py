@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from datetime import date
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
@@ -25,6 +26,10 @@ class Project(models.Model):
     link = models.URLField(max_length=256)
     published_at = models.DateField(auto_now_add=True)
     category = models.CharField(max_length=255, default="Other")
+    created_why = models.TextField(default="", blank=True)
+    for_whom = models.CharField(max_length=255, default="", blank=True)
+    start_date = models.DateField(default=date.today)
+    end_date = models.DateField(blank=True)
     # todo
     # add other fields in this mode like photos, demo_videos
 

@@ -17,6 +17,7 @@ class IndexPage(ListView):
     template_name = "website/index.html"
     ordering = ["-id"]
 
+
 class ProjectDetailsPage(DetailView):
     model = Project
     template_name = "website/project_details.html"
@@ -33,6 +34,7 @@ class NewCategoryPage(CreateView):
     template_name = "website/new_category.html"
     fields = "__all__"
 
+
 class EditProjectDetailsPage(UpdateView):
     model = Project
     template_name = "website/edit_project_details.html"
@@ -43,14 +45,19 @@ class DeleteProjectPage(DeleteView):
     model = Project
     template_name = "website/delete_project.html"
     success_url = reverse_lazy("index_page")
-    
+
+
 class CategoryPage(ListView):
     model = Category
     template_name = "website/specific_category.html"
-    
+
     def get(self, request, cat):
         category_posts = Project.objects.filter(category=cat)
-        return render(request, self.template_name, {
-            "category": cat.capitalize(),
-            "category_posts": category_posts,
-        })
+        return render(
+            request,
+            self.template_name,
+            {
+                "category": cat.capitalize(),
+                "category_posts": category_posts,
+            },
+        )

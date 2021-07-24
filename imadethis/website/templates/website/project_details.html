@@ -22,10 +22,12 @@
 <div>
     {{ project.description }}
 </div>
-
-<p>Link to the project:
-    <a href="{{project.link}}">{{ project.name }}</a>
-</p>
+<br>
+<strong>
+    <p>Link to the project:
+        <a href="{{project.link}}">{{ project.name }}</a>
+    </p>
+</strong>
 
 <a href="{% url 'index_page' %}" class="btn btn-sm btn-outline-secondary">Home</a>
 {% endblock %}
