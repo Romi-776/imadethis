@@ -5,6 +5,10 @@ from .models import *
 categories = Category.objects.all().values_list("name", "name")
 
 
+class DateInput(forms.DateInput):
+    input_type = "date"
+
+
 class NewProjectForm(forms.ModelForm):
     class Meta:
         model = Project
@@ -35,15 +39,19 @@ class NewProjectForm(forms.ModelForm):
                 attrs={"class": "form-control", "placeholder": "Project Description"}
             ),
             "created_why": forms.Textarea(
-                attrs={"class": "form-control", "placeholder": "Why you created this project?"}
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Why you created this project?",
+                }
             ),
             "for_whom": forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "Why you created this project?"}
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Why you created this project?",
+                }
             ),
-            "start_date": forms.DateInput(format='%d/%m/%Y'),
-
-            "end_date": forms.DateInput(format='%d/%m/%Y'),
-
+            "start_date": DateInput(),
+            "end_date": DateInput(),
             "link": forms.TextInput(
                 attrs={"class": "form-control", "placeholder": "URL to the Project"}
             ),
