@@ -52,6 +52,8 @@ class CategoryPage(ListView):
     template_name = "website/specific_category.html"
 
     def get(self, request, cat):
+        cat = cat.replace('-', ' ')
+        print(cat)
         category_posts = Project.objects.filter(category=cat)
         return render(
             request,

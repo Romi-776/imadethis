@@ -11,7 +11,7 @@
                 {{ project.name }}
             </strong>
         </a>
-        - <a href="{% url 'specific_category_page' project.category %}"> {{ project.category }} </a>
+        - <a href="{% url 'specific_category_page' project.category|slugify %}"> {{ project.category }} </a>
         (by:- {{ project.made_by }}) | {{ project.published_at }}
         <br>
         {% if user.is_authenticated %}

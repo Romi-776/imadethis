@@ -57,6 +57,9 @@ class NewProjectForm(forms.ModelForm):
             ),
         }
 
+    def clean(self):
+        self.cleaned_data['category'] = self.cleaned_data['category'].lower()
+
 
 class EditProjectForm(forms.ModelForm):
     class Meta:
